@@ -1,0 +1,23 @@
+{
+  "name": "chatgpt",
+  "version": "1.0.0",
+  "description": "Gemini Bot",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samarth212/PythonGPT.git"
+  },
+  "keywords": [
+    "chatbot"
+  ],
+  "author": "Samarth K",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samarth212/PythonGPT/issues"
+  },
+  "homepage": "https://github.com/samarth212/PythonGPT#readme"
+}
