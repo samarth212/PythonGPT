@@ -10,7 +10,7 @@ const {
   const MODEL_NAME = "gemini-1.0-pro";
   const API_KEY = "YOUR_API_KEY";
   
-  async function runChat() {
+  async function runChat(message) {
     const genAI = new GoogleGenerativeAI(API_KEY);
     const model = genAI.getGenerativeModel({ model: MODEL_NAME });
   
@@ -55,9 +55,15 @@ const {
       ],
     });
   
-    const result = await chat.sendMessage("YOUR_USER_INPUT");
-    const response = result.response;
-    console.log(response.text());
+    const result = await chat.sendMessage(message);
+    const response = result.response.text();
+    
+    const chatHistory = document.getElementById("chat-history");
+    chatHistory.innerHTML += `<div class="bot-response">${response}</div>`;
   }
   
-  runChat();
+  document.getElementById("send-button").addEventListener("click", () => {
+    const userInput = document.getElementById("user-input").value;
+    runChat(userInput);
+    userInput.value = ""; // Clear input field
+  });

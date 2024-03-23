@@ -61,10 +61,3 @@ body {
     border-radius: 5px;
     cursor: pointer;
   }
-  #loader {
-  display: none; /* Hide by default */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
