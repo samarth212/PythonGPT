@@ -114,7 +114,8 @@
             console.log(data)
             const botMessage = data.response;
             console.log(botMessage)
-            let formattedMessage = boldAsteriskText(botMessage)
+            let indentedMessage = indentText(botMessage)
+            let formattedMessage = boldAsteriskText(indentedMessage)
             // Add chat message to the chat history
             chatHistory.innerHTML += `<div class="user-message">${userMessage}</div>`;
 
@@ -147,6 +148,20 @@
 
         function formatText(text){
           boldAsteriskText(text);
+        };
+
+        function indentText(text) {
+          const lines = text.split("\n");
+          let formattedText = "";
+
+          for (const line of lines) {
+            if (line.startsWith("* ")) {
+              formattedText += "<li>" + line.slice(2) + "</li>";
+            } else {
+              formattedText += line + "\n";
+            }
+          }
+          return formattedText;
         };
 
         function boldAsteriskText(text) {
