@@ -133,7 +133,6 @@
             chatHistory.scrollTop = chatHistory.scrollHeight;
         } catch (error) {
             console.error('Error:', error);
-            // Handle errors gracefully, e.g., display an error message to the user
         }
         }
         
@@ -155,7 +154,11 @@
           let formattedText = "";
 
           for (const line of lines) {
-            if (line.startsWith("* ")) {
+
+            if (/^\d+\. /.test(line)) {
+              formattedText += "<li>" + line.slice(line.indexOf(" ") + 1) + "</li>";
+              listNumber++; 
+            } else if (line.startsWith("* ")) {
               formattedText += "<li>" + line.slice(2) + "</li>";
             } else {
               formattedText += line + "\n";
