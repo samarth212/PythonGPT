@@ -114,9 +114,19 @@
             console.log(data)
             const botMessage = data.response;
             console.log(botMessage)
+            let formattedMessage = boldAsteriskText(botMessage)
             // Add chat message to the chat history
             chatHistory.innerHTML += `<div class="user-message">${userMessage}</div>`;
-            chatHistory.innerHTML += `<div class="bot-message">${botMessage}</div>`;
+
+            for(char in botMessage){
+              //console.log(botMessage[char])
+              if(botMessage[char] == '*'){
+                console.log('bold')
+              };
+            };
+            chatHistory.innerHTML += `<div class="bot-message">${formattedMessage}</div>`;
+            
+
 
             // Scroll to the bottom of the chat history
             chatHistory.scrollTop = chatHistory.scrollHeight;
@@ -134,6 +144,15 @@
         loader.style.display = 'none'; // Hide the loader after the message is sent
         });;
         });
+
+        function formatText(text){
+          boldAsteriskText(text);
+        };
+
+        function boldAsteriskText(text) {
+          const regex = /\*\*(.*?)\*\*/g;
+          return text.replace(regex, "<b>$1</b>");
+        };
         
     </script>
 </body>
