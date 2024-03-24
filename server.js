@@ -1,5 +1,4 @@
 // node --version # Should be >= 18
-// npm install @google/generative-ai express
 
 const express = require('express');
 const { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } = require('@google/generative-ai');
@@ -27,7 +26,7 @@ async function runChat(userInput) {
       category: HarmCategory.HARM_CATEGORY_HARASSMENT,
       threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
     },
-    // ... other safety settings
+    //safety jawn
   ];
 
   const chat = model.startChat({
